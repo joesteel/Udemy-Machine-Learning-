@@ -20,6 +20,7 @@ def build_model(X, y):
         results = regressor_OLS.fit()
         p_values = results.pvalues
         variable_under_test = np.argmax(p_values)
+        print("P_Values", p_values)
         if (p_values.max() >= significance):
             print("removing variable_under_test index", variable_under_test)
             X_opt = np.delete(X_opt, variable_under_test, axis = 1) 
